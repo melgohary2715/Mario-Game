@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mario Game</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+
+    <div id="modal" class="modal">
+      <div class="button-container">
+        <button onclick="toggleModal(event)"  id="register-button">Register</button>
+        <button onclick="toggleModal(event)" id="login-button" class="not-active">Login</button>
+      </div>
+
+      <form id="register-form" onsubmit="register(event)">
+        <label for="register-email"></label>
+        <input type="email" id="register-email" value="demo@example.com" required>
+        <label for="register-password">Password</label>
+        <input id="register-password" type="password" value="password" required pattern=".{6,}">
+        <label for="register-username">Username</label>
+        <input id="register-username" type="text" value="User" required>
+        <br />
+        <input type="submit" value="Sign Up">
+      </form>
+
+      <form id="login-form" onsubmit="login(event)" class="hidden">
+        <label for="login-email"></label>
+        <input type="email" id="login-email" placeholder="Enter email" required>
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" placeholder="password" required pattern=".{6,}">
+        
+        <br />
+        <input type="submit" value="Sign In">
+      </form>
+
+    </div>
+
+    <div class="info-container">
+      <button id="logout-button" class="hidden" onclick="logout()">Log out</button>
+      <h3 id="username"></h3>
+      <h3 id="highscore-tag" class="hidden">Highscore: <span id="highscore"></span></h3>
+    
+    </div>
+
+    <script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@11.0.0"></script>
+    <script src="game.js"></script>
+  </body>
+
+</html>
